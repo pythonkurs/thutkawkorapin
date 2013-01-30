@@ -32,7 +32,7 @@ class CourseRepo(object):
         return True
 
 
-class set_repo_dir:
+class RepoDir:
 
 
     def __init__(self, path):
