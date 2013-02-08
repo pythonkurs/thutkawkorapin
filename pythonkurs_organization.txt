@@ -1,3 +1,1 @@
-The most common weekday and hour is on Wednesday at 5pm GMT. This is
-probably influenced by Johannes Alneberg who commit his works at that
-time for at that hour and day for 15 times so far.
+The most common weekday and hour is on Wednesday at 5pm GMT. This is probably influenced by Johannes Alneberg who commit his works at that hour and day for 15 times so far.
