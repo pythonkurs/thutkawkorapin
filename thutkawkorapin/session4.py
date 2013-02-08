@@ -28,7 +28,7 @@ class Repos(object):
 
     def __load_repos(self):
         repos = self.__call_git_api("https://api.github.com/orgs/%s/repos" % (self.owner))
-        commit_histories = {}
+#        commit_histories = {}
         commit_datetimes = []
         commit_days      = []
         commit_hours     = []
