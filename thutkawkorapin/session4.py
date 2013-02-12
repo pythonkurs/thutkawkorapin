@@ -28,27 +28,18 @@ class Repos(object):
 
     def __load_repos(self):
         repos = self.__call_git_api("https://api.github.com/orgs/%s/repos" % (self.owner))
-        commit_datetimes = []
         commit_days      = []
         commit_hours     = []
-        commit_messages  = []
-        commit_authors   = []
         for repo in repos:
             commits = self.__call_git_api("https://api.github.com/repos/%s/%s/commits" % (self.owner, repo["name"]))
             for commit in commits:
                 if "commit" not in commit:
                     continue
-                commit_messages.append(commit["commit"]["message"])
-                commit_authors.append(commit["commit"]["author"]["name"])
                 commit_datetime = parser.parse(commit["commit"]["author"]["date"])
-                commit_datetimes.append(commit_datetime)
                 commit_days.append(commit_datetime.strftime("%A"))
                 commit_hours.append(commit_datetime.hour)
         self.__repo_info = DataFrame({'day'     : commit_days,
                                       'hour'    : commit_hours,
-                                      'message' : commit_messages,
-                                      'author'  : commit_authors,
-                                      'message' : commit_messages,
                                       },
                                      index = commit_days)
         return self.__repo_info
